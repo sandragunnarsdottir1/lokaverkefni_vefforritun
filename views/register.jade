@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  p Skoðaðu dagskrána!
+  
+  if msg
+    p= msg
+  else
+    form(method="post")
+      fieldset.form-group
+        label(for="username") Nafn
+        input(id="username" type="text" placeholder="Nafn" name="name").form-control
+      fieldset.form-group  
+        label(for="username") Notendanafn
+        input(id="username" type="text" placeholder="Notendanafn" name="username").form-control
+      fieldset.form-group
+        label(for="password") Lykilorð
+        input(id="password" type="password" name="password" placeholder="Lykilorð").form-control
+      input(type="submit" value="Skrá mig í félagið").form-control

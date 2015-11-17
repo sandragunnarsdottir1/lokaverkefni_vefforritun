@@ -1,0 +1,10 @@
+extends layout
+block content
+
+	if session && session.user
+		if results
+			each result in results
+				.entry
+					.left
+						.bold
+							a(href='/wall/title')= 'Titill: ' + result.title

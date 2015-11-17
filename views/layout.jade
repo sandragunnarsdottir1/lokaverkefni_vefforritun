@@ -1,0 +1,33 @@
+doctype html
+html(lang="is")
+  head
+    title= title
+    link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet")
+    link(rel='stylesheet' href='/dist/stylesheets/styles.css')
+  body
+
+
+      nav
+        
+          ul
+            li: a(href="/dagskrain") Sjónvarpsdagskrá
+            li: a(href='/wall') Veggur
+            li: a(href='/newentry') Ný færsla á vegg
+            li: a(href="/vinsaelt") Vinsælir þættir
+            li: a(href='/login') Skrá inn
+            li: a(href='/register') Nýskrá
+
+      header
+        img(src="./images/logo.png")
+
+      main
+        block content
+
+
+
+    .footer
+        span Tfooter
+        
+    
+  script(src="/javascripts/frontend.js")
+
