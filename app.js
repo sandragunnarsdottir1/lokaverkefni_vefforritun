@@ -19,6 +19,9 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var login = require('./routes/login');
 //var register = require('./routes/register');
+var lalalal=1;
+//sdsdsda
+//sddssd
 var wall = require('./routes/wall');
 var newentry = require('./routes/newentry');
 var vinsaelt = require('./routes/vinsaelt');
