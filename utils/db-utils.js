@@ -1,6 +1,6 @@
 'use strict';
 var pg = require('pg');
-var conString = 'postgres://bcncokaggomsob:d28sQoNQKvoAVEV9Tlps0RDBZC@ec2-107-21-219-235.compute-1.amazonaws.com:5432/decai7npeph56c?ssl=true'
+var conString = 'postgres://yplswmlzaypleo:K065A5mYKpc1wcubhwK7dBOEsS@ec2-54-225-197-30.compute-1.amazonaws.com:5432/d3gm2fa2gt6uc4?ssl=true'
 
 
 
