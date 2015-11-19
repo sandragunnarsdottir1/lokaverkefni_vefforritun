@@ -20,6 +20,7 @@ var routes = require('./routes/index');
 var login = require('./routes/login');
 var register = require('./routes/register');
 var wall = require('./routes/wall');
+var forum = require('./routes/forum');
 var newentry = require('./routes/newentry');
 var vinsaelt = require('./routes/vinsaelt');
 var dagskrain = require('./routes/dagskrain');
@@ -60,6 +61,7 @@ app.use('/newentry', newentry);
 app.use('/login', login);
 app.use('/register', register);
 app.use('/wall', wall);
+app.use('/forum', forum);
 app.use('/vinsaelt', vinsaelt);
 app.use('/dagskrain', dagskrain);
 

@@ -5,28 +5,39 @@ html(lang="is")
     link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet")
     link(rel='stylesheet' href='/dist/stylesheets/styles.css')
   body
+    .row
+      .col-lg-12
 
 
-      nav
-        
-          ul
-            li: a(href="/dagskrain") Sjónvarpsdagskrá
-            li: a(href='/wall') Veggur
-            li: a(href='/newentry') Ný færsla á vegg
-            li: a(href="/vinsaelt") Vinsælir þættir
-            li: a(href='/login') Skrá inn
-            li: a(href='/register') Nýskrá
+        nav
+          
+            ul
+              li: a(href="/dagskrain") Sjónvarpsdagskrá
+              li: a(href='/wall') Veggur
+              li: a(href='/newentry') Ný færsla á vegg
+              li: a(href="/vinsaelt") Vinsælir þættir
+              li: a(href='/login') Skrá inn
+              li: a(href='/register') Nýskrá
 
-      header
-        img(src="./images/logo.png")
+        header
+          img(src="./images/logo.png")
 
-      main
-        block content
+        main
+          block content
 
 
+    .row
+      .col-lg-12
+        .footer
+          .col-xs-4
+              p Hjarðarhagi 2-6
+              p 101 Reykjavík
+          .col-xs-4
+              p Hafðu samband
+          .col.xs-4
+              p Gögn frá apis.is
 
-    .footer
-        span Tfooter
+
         
     
   script(src="/javascripts/frontend.js")

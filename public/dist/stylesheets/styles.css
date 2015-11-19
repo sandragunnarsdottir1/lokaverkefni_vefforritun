@@ -4,7 +4,6 @@ html {
   font-size: 10px; }
 
 body {
-  padding: 50px;
   font: 1.8rem "Open Sans", sans-serif;
   max-width: 1200px;
   }
@@ -50,6 +49,7 @@ li{
 }
 
 nav {
+  padding-top: 30px;
   font-size: 16px;
   color: white;
   height: 1080px;
@@ -59,7 +59,6 @@ nav {
   text-transform: uppercase;
   font-style: bold;
   float: left;
-  position: absolute;
   padding-left: 15px;
 }
 
@@ -77,8 +76,14 @@ nav a:hover {
   position: relative;
   text-transform: uppercase;
   color: #f1f1f1;
-  padding: 30px;
+  padding: 70px;
   display: block;
+  }
+
+  img {
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
   }
 
 .xss-holder {
