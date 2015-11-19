@@ -1,4 +1,6 @@
 'use strict';
+var getTvList = require('./utils/tv-list');
+getTvList.tvLisit();
 
 var express = require('express');
 // the path module makes working with paths more convenient
