@@ -4,30 +4,41 @@ block content
 
 	.dagskrain
 
-		ul.nav.nav-tabs
-			li(role='presentation'): a(href='/dagskrain/ruv') 
-				img(src="/images/ruv.jpg", alt="") 
-			li(role='presentation'): a(href='#') 
+		ul.nav.nav-pills
+			li#ruv.ch(role='presentation'): a(href='#') 
+				img(src="/images/ruv.jpg", alt="Logo, RÚV") 
+			//li(role='presentation'): a.ruvIthrottir(href='#') 
 				img(src="/images/ruv-sport.jpg", alt="") 
-			li(role='presentation'): a(href='#')
-				img(src="/images/stod2.jpg", alt="") 
-			li(role='presentation'): a(href='#')
-				img(src="/images/stod2bio.jpg", alt="") 
-			li(role='presentation'): a(href='#') 
-				img(src="/images/stod2gull.png", alt="")  
-			li(role='presentation'): a(href='#') 
-				img(src="/images/stod2sport.jpg", alt="")
-			li(role='presentation'): a(href='#') 
-				img(src="/images/stod2sport2.jpg", alt="")	 
-			li(role='presentation'): a(href='#') 
-				img(src="/images/skja1.jpg", alt="")	 
+			li#stod2.ch(role='presentation'): a(href='#')
+				img(src="/images/stod2.jpg", alt="Logo, Stöð 2") 
+			li#stod2bio.ch(role='presentation'): a(href='#')
+				img(src="/images/stod2bio.jpg", alt="Logo, Stöð 2 bio") 
+			li#stod2gull.ch(role='presentation'): a(href='#') 
+				img(src="/images/stod2gull.png", alt="Logo, Stöð 2 Gull")  
+			li#stod2sport.ch(role='presentation'): a(href='#') 
+				img(src="/images/stod2sport.jpg", alt="Logo, Stöð 2 Sport")
+			li#stod2sport2.ch(role='presentation'): a(href='#') 
+				img(src="/images/stod2sport2.jpg", alt="Logo, Stöð 2 Sport 2")
+			li#stod3.ch(role='presentation'): a(href='#') 
+				img(src="/images/stod3.jpg", alt="Logo, Stöð 3")	 		 
+			li#skjar1.ch(role='presentation'): a(href='#') 
+				img(src="/images/skjar1.jpg", alt="Logo, Skjár Einn")	 
 						
 			
 
 
-		table
-			tr
-				td
+		table.table.table-striped(style='width:100%')
+			thead
+				tr
+					th Klukkan
+					th Nafn 
+					th Lengd 
+					th Nánari lýsing
+			tbody
+				tr
+					td Hleð gögnum		
+
+		
 			
 				
 
