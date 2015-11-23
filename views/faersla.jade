@@ -15,3 +15,10 @@ block content
 						.bold
 							p= 'Færsla: '
 						p= result.entry_text
+
+		form(method='post' action= 'forum/blog')
+			label(for="entry")
+			p
+			textarea(id="entry" name="entry", placeholder='Skrifaðu innlegg við þessa færslu').xss-enabler
+			input(type="submit" value="Vista").form-control
+
