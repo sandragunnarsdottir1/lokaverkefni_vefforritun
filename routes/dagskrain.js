@@ -8,30 +8,34 @@ var router = express.Router();
 router.get('/', function(req, res) {
 	var data ="";
     res.render('dagskrain', data);
-
-
 });
 
-router.get('/ruv', function(req, res) {
+router.get('/stod', function(req, res) {
+	var idCh = req.query.idChannel;
+	//console.log('query er ' + idCh);
+	getTvList(idCh,res); 	  
+});
 
-	var data = {titil : 'dagskrá'};
-    var queryStr = 'SELECT * FROM channel where channel = $1';
-    var parameters = ['ruv'];
+
+
+
+
+
+function getTvList (ch,res) {
+ 	var data = {};
+    var queryStr = 'SELECT * FROM channel where channel = $1 ORDER BY starttime' ;
+    var parameters = [ch];
 	dbUtils.queryDb(queryStr, parameters, function(err, result) {
 	if(err) {
 	 return console.error('error fetching client from pool', err);
 	}
 	data.results = result.rows;
+	//res.render('dagskrain',data);
 	res.send(data);
-	console.log('tókst að ná í');
+	//return data;
+	console.log('tókst að ná í  getTvList');
 	});
-
-
- 	  
-});
-
-
-
+}
 
 
 

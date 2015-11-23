@@ -2,9 +2,11 @@
 var dbUtils = require('../utils/db-utils');
 var request = require("request");
 
+
+
 exports.tvLisit = function () {
 
-  //var myVar = setInterval(function(){ myTimer() }, 60000);
+  /*var myVar = setInterval(function(){ myTimer() }, 60000);
 
   function myTimer() {
     
@@ -13,10 +15,10 @@ exports.tvLisit = function () {
     if (h == 6) {
       console.log('myTimer');
     };
-  };
+  };*/
 
 
-
+  // Hreinsar töflun channel og kalla á getDifferntChannel
   function clearTable () {
 
     var queryStr = 'TRUNCATE channel' 
@@ -30,7 +32,7 @@ exports.tvLisit = function () {
     });
 
   };
-
+    
    function getDifferentChannel () {
     var ch = ['ruv','ruvithrottir','stod2','stod2sport','stod2sport2','stod2gull','stod2bio','stod3','skjar1'];
 

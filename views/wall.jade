@@ -3,8 +3,10 @@ block content
 
 	if session && session.user
 		if results
-			each result in results
-				.entry
-					.left
-						.bold
-							a(href='/forum?id='+ result.serial)= 'Titill: ' + result.title
+			a(href='/newentry') Bæta við nýjum þræði
+			p
+				each result in results
+					.entry
+						.left
+							.bold
+								a(href='/forum?id='+ result.titleid)= ' ' + result.title + ' ' +result.create_date

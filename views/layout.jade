@@ -3,19 +3,17 @@ html(lang="is")
   head
     title= title
     link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet")
+    link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"  rel="stylesheet")
     link(rel='stylesheet' href='/dist/stylesheets/styles.css')
     link(rel='stylesheet' href='/dist/stylesheets/samband.css')
   body
     .row
       .col-lg-12
-
-
         nav
-          
             ul
               li: a(href="/dagskrain") Sjónvarpsdagskrá
-              li: a(href='/wall') Veggur
-              li: a(href='/newentry') Ný færsla á vegg
+              li: a(href='/wall') Umræða
+              li: a(href='/newentry') Bæta við þræði
               li: a(href="/vinsaelt") Vinsælir þættir
               li: a(href='/login') Skrá inn
               li: a(href='/register') Nýskrá
@@ -25,8 +23,6 @@ html(lang="is")
 
         main
           block content
-
-
     .row
       .col-lg-12
         .footer
@@ -41,6 +37,8 @@ html(lang="is")
 
 
         
-    
-  script(src="/javascripts/frontend.js")
+  
+  script(src="/bower_components/jquery/dist/jquery.min.js")
+  script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")    
+  script(src="/javascripts/main.js")  
 
