@@ -26,6 +26,8 @@ var forum = require('./routes/forum');
 var newentry = require('./routes/newentry');
 var vinsaelt = require('./routes/vinsaelt');
 var dagskrain = require('./routes/dagskrain');
+var samband = require('./routes/samband');
+
 
 // initialize express
 var app = express();
@@ -66,6 +68,7 @@ app.use('/wall', wall);
 app.use('/forum', forum);
 app.use('/vinsaelt', vinsaelt);
 app.use('/dagskrain', dagskrain);
+app.use('/samband', samband);
 
 app.get('/logout', function(req, res){
   // destroy the user's session to log them out

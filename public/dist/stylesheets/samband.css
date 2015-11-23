@@ -1,0 +1,47 @@
+  .skraning .villa{
+    margin-bottom: -10px;
+    }
+
+  .skraning form .radio label {
+    width: 100px; 
+    }
+  .skraning form .buttons input {
+    padding: 5px;
+    font-size: 24px;
+    width: 100px;
+    }
+  .skraning form .invalid input, .skraning form .invalid{
+    border: 1px solid #c66;
+    background: #fee; 
+    }
+  .skraning div#errors {
+    width: 420px;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    border: 1px solid #c66;
+    background: #fee; 
+    }
+    .skraning div#errors p {
+      padding-left: 1.5em; 
+    }
+  .skraning .hidden {
+    display: none;
+    }
+
+  .skraning form .field {
+    margin-bottom: 0.7em;
+    }
+    
+  .skraning form .radio {
+    float: left;
+    margin-bottom: 0.7em; 
+    }
+  .skraning form label, .skraning form span.label {
+    width: 140px;
+    float: left; 
+    }
+  .skraning form input[type=text] {
+    width: 300px;
+    height: 3em; 
+    }
+  

@@ -1,0 +1,51 @@
+extends layout
+block content
+  
+ 
+    .skraning
+      if valid== false
+        #errors
+        
+          if valid== false
+            p Villur í skráningu!
+            each result in results
+              if result.result == false
+                ul
+                  li.villa= result.name
+       
+      form#register(action='/samband/bar', method='post')
+        .field
+          label(for='name') Nafn: *
+          if name
+            input#name(type='text', name='name', placeholder='Jón Jónsson' value=name)
+          else
+            input#name(type='text', name='name', placeholder='Jón Jónsson')
+
+        .field
+          label(for='email') Netfang: *
+          if email
+          input#email(type='text', name='email', placeholder='nonni@example.org')
+          
+        .field
+          label(for='efni') Efni: *
+          input#efni(type='text', name='efni', placeholder='Efni fyrirspurnar')
+
+        //*.field
+          span.label Tegund heimilis: *
+          .radio
+            label(for='condominium')
+              input#condominium(type='radio', name='home', value='Einbýli')
+              | Einbýli
+            label(for='doublehome')
+              input#doublehome(type='radio', name='home', value='Tvíbýli')
+              | Tvíbýli
+            label(for='singlehome')
+              input#singlehome(type='radio', name='home', value='Fjölbýli')
+              | Fjölbýli/*
+
+        .field
+          label(for='query') Fyrirspurn: *
+          textarea(type='text', name='query', placeholder='Skrifaðu þína fyrirspurn hér..')
+
+        .buttons
+          input(type='submit', value='Senda')

@@ -1,15 +1,23 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans&subset=latin,greek);
+@import url(https://fonts.googleapis.com/css?family=Lobster);
+@import url(https://fonts.googleapis.com/css?family=Cabin);
 
 html {
-  font-size: 10px; }
+  font-size: 25px; }
 
 body {
-  font: 1.8rem "Open Sans", sans-serif;
+  font-family: 'Cabin', Helvetica, Arial, sans-serif;
+  font-size: 25px;
+  line-height: 25px;
   max-width: 1200px;
   }
 
 header {
-  display: flex; }
+  display: flex;
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+   }
   header .left {
     flex: 4; }
   header .right {
@@ -20,10 +28,10 @@ header {
 
 main{
   padding: 20px;
-  margin-left: 10em; }
+  margin-left: 15em; }
 
-a {
-  color: orange;
+nav a {
+    color: orange;
    }
 
 .entry {
@@ -33,26 +41,27 @@ a {
 .bold {
   font-weight: bold; }
 
-textarea {
+.skraning textarea {
   width: 100%;
   height: 150px; }
 
-ul{
+nav ul{
   list-style-type: none;
   margin-top: 10px;
   padding: 10px;
   float: left;
 }
 
-li{
+nav li{
   margin: 1em 0;
+  list-style-type: none;
 }
 
 nav {
   padding-top: 30px;
   font-size: 16px;
   color: white;
-  height: 1080px;
+  height: 100%;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.6);
@@ -60,6 +69,7 @@ nav {
   font-style: bold;
   float: left;
   padding-left: 15px;
+  position: absolute;
 }
 
 nav a:hover {
@@ -80,11 +90,53 @@ nav a:hover {
   display: block;
   }
 
-  img {
+  header img {
     vertical-align: middle;
     max-width: 100%;
     height: auto;
   }
+
+  .vinsaelt .tattur{
+    width: 400px;
+    height: auto;
+  }
+
+  .vinsaelt figure .tattur {
+    opacity: 1;
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    border: 2px solid black;
+    box-sizing: border-box;
+  }
+
+  .vinsaelt figure:hover .tattur{
+    opacity: .5;
+
+  }
+
+  .vinsaelt figure p{
+    font-weight: bold;
+    text-shadow: 2px 2px 5px #558C89;
+    color: black;
+  }
+
+  .vinsaelt .imdb{
+    padding-left: 10px;
+  }
+
+ /* h1{
+    font-family: 'Lobster', Georgia, Times, serif;
+    font-size: 70px;
+    line-height: 100px;
+  }*/ 
+
+.footer .contact p:hover{
+  text-decoration: underline;
+}
+
+.footer li{
+  list-style-type: none;
+}
 
 .xss-holder {
   background-color: white;
