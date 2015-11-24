@@ -5,20 +5,22 @@ html(lang="is")
     link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet")
     link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"  rel="stylesheet")
     link(rel='stylesheet' href='/dist/stylesheets/styles.css')
+    link(rel='stylesheet' href='/dist/stylesheets/samband.css')
   body
     .row
       .col-lg-12
         nav
             ul
+              li: a(href="/") Forsíða
               li: a(href="/dagskrain") Sjónvarpsdagskrá
               li: a(href='/wall') Umræða
-              li: a(href='/newentry') Bæta við þræði
               li: a(href="/vinsaelt") Vinsælir þættir
               li: a(href='/login') Skrá inn
               li: a(href='/register') Nýskrá
+              li: a(href='/logout') Útskrá
 
         header
-          img(src="./images/logo.png")
+          img(src="/images/logo.png")
 
         main
           block content
@@ -29,7 +31,8 @@ html(lang="is")
               p Hjarðarhagi 2-6
               p 101 Reykjavík
           .col-xs-4
-              p Hafðu samband
+            .contact
+                li: a(href="/samband") Hafðu samband
           .col.xs-4
               p Gögn frá apis.is
 
