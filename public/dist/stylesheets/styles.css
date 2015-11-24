@@ -124,12 +124,6 @@ nav a:hover {
     padding-left: 10px;
   }
 
- /* h1{
-    font-family: 'Lobster', Georgia, Times, serif;
-    font-size: 70px;
-    line-height: 100px;
-  }*/ 
-
 .footer .contact p:hover{
   text-decoration: underline;
 }

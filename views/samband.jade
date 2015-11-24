@@ -13,39 +13,26 @@ block content
                 ul
                   li.villa= result.name
        
-      form#register(action='/samband/bar', method='post')
-        .field
-          label(for='name') Nafn: *
+      form(action='/samband/bar', method="post")
+        fieldset.form-group
+          label(for='name') Nafn: * 
           if name
-            input#name(type='text', name='name', placeholder='Jón Jónsson' value=name)
+            input#name(type='text', name='name', placeholder='Jón Jónsson' value=name).form-control
           else
-            input#name(type='text', name='name', placeholder='Jón Jónsson')
+            input#name(type='text', name='name', placeholder='Jón Jónsson').form-control
 
-        .field
+        fieldset.form-group
           label(for='email') Netfang: *
           if email
-          input#email(type='text', name='email', placeholder='nonni@example.org')
+          input#email(type='text', name='email', placeholder='nonni@example.org').form-control
           
-        .field
+        fieldset.form-group
           label(for='efni') Efni: *
-          input#efni(type='text', name='efni', placeholder='Efni fyrirspurnar')
+          input#efni(type='text', name='efni', placeholder='Efni fyrirspurnar').form-control
 
-        //*.field
-          span.label Tegund heimilis: *
-          .radio
-            label(for='condominium')
-              input#condominium(type='radio', name='home', value='Einbýli')
-              | Einbýli
-            label(for='doublehome')
-              input#doublehome(type='radio', name='home', value='Tvíbýli')
-              | Tvíbýli
-            label(for='singlehome')
-              input#singlehome(type='radio', name='home', value='Fjölbýli')
-              | Fjölbýli/*
-
-        .field
+        fieldset.form-group
           label(for='query') Fyrirspurn: *
-          textarea(type='text', name='query', placeholder='Skrifaðu þína fyrirspurn hér..')
+          textarea(type='text', name='query', placeholder='Skrifaðu þína fyrirspurn hér..').form-control
 
         .buttons
-          input(type='submit', value='Senda')
+          input(type='submit', value='Senda').form-control

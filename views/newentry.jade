@@ -5,10 +5,10 @@ block content
 	if session && session.user
 
 		form(method='post')
-			input(type='text', name='title' placeholder='Titill Færslu')
+			input(type='text', name='title' placeholder='Titill Færslu').form-control
 			label(for="entry")
 			p
-			textarea(id="entry" name="entry", placeholder='Skrifaðu færsluna þína hér').xss-enabler
+			textarea(id="entry" name="entry", placeholder='Skrifaðu færsluna þína hér').form-control
 			input(type="submit" value="Vista").form-control
 
 .xss-holder
