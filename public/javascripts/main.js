@@ -11,78 +11,21 @@ $(document).ready(function() {
 
     var channel = $(this).attr('id');
     $(this).addClass("active");
-    //table(channel);
     getChannel(channel);
 
-
+    //console.log('id er ' + $(this)  )
   });
+
 
 
 
   var trHTML = '';
-
-/*
-//var i = 0;
-//var results= [a];
-function table (name) {
-
-  if(document.querySelector('tr') !== null ){
-    $('tbody').empty();
-    $('tbody').append('<tr><td colspan="5">Hleð gögnum...</td></tr>');
-  }  
-  $.ajax({
-    url: 'dagskrain/stod',
-    type: 'GET',
-    data: 'idChannel='+name+'',
-    success: function (response) {
-      var trHTML = '';
-      //var i = 0;
-      //var results = response.results;
-      //var time = results[i].starttime;
-      //var title = results[i].title + ' ('+ results[i].episode +' af '+results[i].series + ')';
-     // var length = results[i].duration;
-      $.each(response, function (i,results) {
-        for (var i = 0; i < results.length; i++){ 
-          var t = results[i].starttime.split(/[- :]/);
-          var timi = t[3] +':'+ t[4];
-          var title = "";
-          var episode = results[i].episode; 
-          var series = results[i].series;
-          if (episode=== '' || episode === '1' && series === '' || series === '1') {
-            title = results[i].title;
-          }
-          else{
-            title = results[i].title + ' ('+episode+' af '+series+ ')';
-          }
-  
-
-          trHTML += '<tr><td>' + timi + 
-          '</td><td>' + title +
-          '</td><td>' + results[i].duration +
-          '</td><td><a>' + 'Nánar lýsing' + 
-          '</a></td></tr>';      
-        }
-    });
-      if(document.querySelector('tr') !== null ){
-        $('tbody').empty();
-      }  
-      $('tbody').append(trHTML);    
-
-    }
-
-  });
-}
- */ 
-
-
-
-
   
   function getChannel (name) {
     trHTML = '';
     if(document.querySelector('tr') !== null ){
       $('tbody').empty();
-      $('tbody').append('<tr><td colspan="5">Hleð gögnum...</td></tr>');
+      $('tbody').append('<tr><td colspan="4">Hleð gögnum...</td></tr>');
     }; 
     $.ajax({
     url: 'dagskrain/stod',
@@ -92,21 +35,21 @@ function table (name) {
       $.each(response, function (i,results) {
         for (var i = 0; i < results.length; i++) {
           var data = [];
-          data.push(results[i].starttime.split(/[- :]/));
-          data.push(results[i].title);
-          data.push(results[i].episode);
-          data.push(results[i].series);
-          data.push(results[i].duration);
+          data.push(results[i].starttime.split(/[- :]/)); // 0
+          data.push(results[i].title);  // 1
+          data.push(results[i].episode); // 2
+          data.push(results[i].series);  // 3
+          data.push(results[i].duration.split(/[:]/));  // 4
 
-          data.push(results[i].description);
-          data.push(results[i].live);
-          data.push(results[i].premier);
-          data.push(results[i].originalTitle);
-          data.push(results[i].shortDescription);
-          data.push(results[i].aspectRatio);
-
+          data.push(results[i].description);  // 5
+          data.push(results[i].live);  // 6
+          data.push(results[i].premier);  // 7
+          data.push(results[i].originaltitle);  // 8
+          data.push(results[i].shortdescription);  // 9
+          data.push(results[i].aspectratio);  // 10
+          
       
-          createTable(data);
+          createTable(data, i);
         };
       });
       insertTableToWeb();
@@ -119,7 +62,7 @@ function table (name) {
 
 
  
-  function createTable(data) {
+  function createTable(data, id) {
   //console.log('tókst að gera createTable')
 
     var time = data [0][3] + ':' + data [0][4]; 
@@ -128,27 +71,93 @@ function table (name) {
     if (!(data[2] === '' || data[2] === '1' && data[3] === '' || data[3] === '1')) {
       episodeOfSeries = ' ('+data[2]+' af '+data[3]+ ')';
     };
-    var duration = data[4];
 
-    trHTML += '<tr><td>' + time + 
-   '</td><td>' + title + episodeOfSeries +
-   '</td><td>' + duration +
-   '</td><td><a>' + 'Nánar lýsing' + 
-   '</a></td></tr>';   
+    var duration = data[4][0]+':'+data[4][1];
+    var description = data[5];
+    var live = data[6];
+    var premier = data[7];
+    var aspectRatio = data[10];
 
-   // console.log(trrHTML)
-       
+
+    var link = '<a href="#" class="moreAbout" id="'+ id +'">'+
+    '<span id="'+ id +'" class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>';
+    
+
+    trHTML += '<tr>' +
+                '<td>' + time + ''+
+                '</td>' +
+                '<td>' + title + episodeOfSeries + ''+
+                '</td>' +
+                '<td>' + duration + ''+
+                '</td>'+
+                '<td>'+ link +
+                '</td>'+
+              '</tr>'+
+  
+              '<tr class ="moreDetails hidden" id="'+id+'">'+
+                '<td colspan="2" rowspan="3">' + 'Um Myndan: </br> '+description+' ' + ''+
+                '</td>'+
+                '<td>' + 'Beint:' + ''+
+                '</td>'+
+                '<td>' + live + ''+
+                '</td>'+
+              '</tr>'+
+              '<tr class ="moreDetails hidden" id="'+id+'">'+
+                '<td>' + 'Frumsýnd:' + ''+
+                '</td>'+
+                '<td>' + premier + ''+
+                '</td>'+
+              '</tr>'+
+              '<tr class ="moreDetails hidden" id="'+id+'">'+
+                '<td>' + 'Hlutfall:' + ''+
+                '</td>'+
+                '<td>' + aspectRatio + ''+
+                '</td>'+
+              '</tr>';
+    
+      //console.log('link er ' + link)
+    
+
   };
 
   function insertTableToWeb () {
   
     if(document.querySelector('tr') !== null ){
       $('tbody').empty();
-    };  
+    };
+    //console.log(trHTML);  
     $('tbody').append(trHTML);    
+
+    $('.moreAbout').click(moreDetails);
+
+  
   };
 
+  function moreDetails(e) {
+    e.preventDefault();
+  
+    var id = $(this).attr('id');
+    var a = $('#'+id+'.glyphicon');
+    var k = $('#'+id+'.moreDetails').hasClass('hidden');
+    var p = $('#'+id+'.moreDetails')
+    if(k){
+      a[0].classList.remove('glyphicon-plus');  
+      p[0].classList.remove('hidden');
+      p[1].classList.remove('hidden');
+      p[2].classList.remove('hidden');
+      a[0].classList.add('glyphicon-minus');  
+    }
+    else
+    {
+      a[0].classList.remove('glyphicon-minus'); 
+      p[0].classList.add('hidden');
+      p[1].classList.add('hidden');
+      p[2].classList.add('hidden');  
+      a[0].classList.add('glyphicon-plus'); 
+    };
 
+
+  };
 
 
 
