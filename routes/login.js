@@ -34,6 +34,7 @@ router.post('/', function(req, res) {
       res.render('login', 
         {msg : 'Vitlaust notendanafn og/eða lykilorð. Lúði!'}
       );
+      return;
     }
 
     var queryStr = 'SELECT * FROM users WHERE username = $1 AND password = $2';
