@@ -21,7 +21,8 @@ router.get('/', function(req, res) {
 	for(var i=0; i<data.results.length; i++){
 
 		var s = data.results[i].create_date+'';
-		s = s.substring(0, s.length - 14);
+		var GMTIndex = s.indexOf('GMT');
+		s = s.substring(0, GMTIndex);
 		data.results[i].create_date = s;
 	}
 	res.render('wall', data);
