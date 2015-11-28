@@ -1,7 +1,7 @@
 extends layout
 block content
   
- 
+
     .skraning
       if valid== false
         #errors
@@ -13,26 +13,29 @@ block content
                 ul
                   li.villa= result.name
        
-      form(action='/samband/bar', method="post")
+      form(action='/samband', method="post")
         fieldset.form-group
           label(for='name') Nafn: * 
-          if name
-            input#name(type='text', name='name', placeholder='Jón Jónsson' value=name).form-control
-          else
-            input#name(type='text', name='name', placeholder='Jón Jónsson').form-control
+          input(id="name" type='text', name='name', placeholder='Jón Jónsson' value=name).form-control
 
         fieldset.form-group
           label(for='email') Netfang: *
-          if email
-          input#email(type='text', name='email', placeholder='nonni@example.org').form-control
+          input(id="email" type='text', name='email', placeholder='nonni@example.org' value=email).form-control
           
         fieldset.form-group
           label(for='efni') Efni: *
-          input#efni(type='text', name='efni', placeholder='Efni fyrirspurnar').form-control
+          input(id="efni" type='text', name='efni', placeholder='Efni fyrirspurnar' value=efni).form-control
 
         fieldset.form-group
           label(for='query') Fyrirspurn: *
-          textarea(type='text', name='query', placeholder='Skrifaðu þína fyrirspurn hér..').form-control
+          textarea(id="query" type='text', name='query', placeholder='Skrifaðu þína fyrirspurn hér..').form-control= query
+
 
         .buttons
           input(type='submit', value='Senda').form-control
+
+
+
+
+
+

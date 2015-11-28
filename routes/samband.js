@@ -1,25 +1,26 @@
+'use strict';
 var express = require('express');
 var router = express.Router();
 
 var validate = require('../lib/validate');
 
 /* GET /form */
-router.get('/', function(req, res, next) {
-  res.render('samband', { title: 'Hafðu samband' });
+router.get('/', function(req, res) {
+
+  res.render('samband', { title: 'Hafðu samband',session : req.session});
 });
 
 /* POST /form */
-router.post('/bar', function(req, res, next) {
-
-	var data = { title: 'Hafðu samband' };
+router.post('/', function(req, res) {
+	var data = {session : req.session};
+	data.title = 'Hafðu samband';
 	var results = [];
 	var valid = true;
-	var formData = [];
 
 	var check1 = {
 		name: 'Nafn þarf að vera lengra en 2 stafir',
 		result: validate.length(req.body.name, 3)
-	}
+	};
 	results.push(check1);
 	valid = valid && check1.result;
 	data.name = req.body.name;
@@ -53,33 +54,20 @@ router.post('/bar', function(req, res, next) {
 	results.push(check5);
 	valid = valid && check5.result;
 
-	/*var check6 = {
-		name: 'Heimilisfang á að innihalda götuheiti og tölu',
-		result: validate.address(req.body.address)
+	var check6 = {
+		name: 'Þú þarft að gefa upp Fyrirspurn',
+		result: validate.required(req.body.query)
 	};
 	results.push(check6);
-	valid = valid && check6.result;*/
-	
-	/*if(req.body.phone && req.body.phone !== '') {
-	
-	var check7 = {
-			name: 'Númerið þarf að byrja á 4-8 og vera sjö stafir að lengd',
-			result: validate.phonenumber(req.body.phone)
-		};
-		results.push(check7);
-		valid = valid && check7.result;
-	}
+	valid = valid && check6.result;	
 
-	var check8 = {
-		name: 'Veldu tegund húsnæðis',
-		result: validate.oneOf(req.body.home, ['Einbýli', 'Tvíbýli', 'Fjölbýli'])
-	};
-	results.push(check8);
-	valid = valid && check8.result;*/
+
 
 	data.results = results;
 	data.valid = valid;
-	data.formData = formData;
+	data.email = req.body.email;
+	data.efni = req.body.efni;
+	data.query = req.body.query;
 
 	if(valid === true){
 		res.render('form', data);

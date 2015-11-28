@@ -2,13 +2,13 @@
 
 var express = require('express');
 var router = express.Router();
-var dbUtils = require('../utils/db-utils');
 
 
 /* GET home page. */
 router.get('/', function(req, res) {
 
-	var data = "";
+	var data = {session : req.session};
+  	data.title = 'Vinsælir þættir';
 	res.render('vinsaelt', data);
 
 });

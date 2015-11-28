@@ -3,10 +3,12 @@ block content
 
 	if session && session.user
 		if results
-			a(href='/newentry') Bæta við nýjum þræði
-			p
-				each result in results
-					.entry
-						.left
-							.bold
-								a(href='/forum?id='+ result.titleid)= ' ' + result.title + ' ' +result.create_date
+			.bold
+				a(href='/newentry') Bæta við nýjum þræði
+				p
+			each result in results
+				.panel.panel-primary
+					.panel-heading
+						a.panel-title(href='/forum?id='+ result.titleid)= result.title
+					.panel-body 
+						p= result.create_date

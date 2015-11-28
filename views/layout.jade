@@ -1,45 +1,69 @@
 doctype html
 html(lang="is")
   head
+    meta(charset='utf-8')
     title= title
     link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet")
     link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"  rel="stylesheet")
     link(rel='stylesheet' href='/dist/stylesheets/styles.css')
-    link(rel='stylesheet' href='/dist/stylesheets/samband.css')
   body
+    .wrapper
+      .row
+        .col-lg-12
+          nav.navbar.navbar-default
+            .container-fluid
+              .navbar-header
+                a.navbar-brand(href='/') Sjónvarpsdagskráin
+              div
+                ul.nav.navbar-nav
+                  li: a(href='/') Heim
+                  li: a(href='/dagskrain') Dagskrá
+                  li: a(href='/vinsaelt') Vinsælir þættir
+                  if session && session.user
+                    li: a(href='/wall') Umræða
+                  if !session || !session.user
+                    li: a(href='/register') Nýskrá
+                  if !session || !session.user
+                    li: a(href='/login') Innskrá
+                  if session && session.user
+                   li: a(href='/logout') Útskrá
+              if session && session.user
+                #bs-example-navbar-collapse-1.collapse.navbar-collapse
+                  ul.nav.navbar-nav.navbar-right
+                    li
+                      a Skráður inn sem
+                    li
+                      a
+                        span=session.user.username
+
+      .row 
+        .col-lg-12
+          .container
+            header
+              img(src="/images/logonytt.png" alt="Logo")
+
+      .row 
+        .col-lg-12
+          .container
+            main
+              block content
+            .push
     .row
       .col-lg-12
-        nav
-            ul
-              li: a(href="/") Forsíða
-              li: a(href="/dagskrain") Sjónvarpsdagskrá
-              li: a(href='/wall') Umræða
-              li: a(href="/vinsaelt") Vinsælir þættir
-              li: a(href='/login') Skrá inn
-              li: a(href='/register') Nýskrá
-              li: a(href='/logout') Útskrá
-
-        header
-          img(src="/images/logo.png" alt='Logo')
-
-        main
-          block content
-    .row
-      .col-lg-12
-        .footer
-          .col-xs-4
-              p Hjarðarhagi 2-6
-              p 101 Reykjavík
-          .col-xs-4
-            .contact
-                li: a(href="/samband") Hafðu samband
-          .col.xs-4
-              p Gögn frá apis.is
+        .container-fluid
+          .footer
+              .col-sm-4
+                  a(href='http://ja.is/kort/?q=Hjar%C3%B0arhagi%202-6&type=map&x=356194&y=407333&z=8') Hjarðarhagi 2-6
+                  p 107 Reykjavík
+              .col-sm-4
+                  a(href="/samband") Hafðu samband
+              .col-sm-4
+                  a(href='http://www.apis.is') Gögn frá APIS
 
 
         
   
-  script(src="/bower_components/jquery/dist/jquery.min.js")
+  script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js")
   script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")    
   script(src="/javascripts/main.js")  
 

@@ -6,7 +6,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res) {
 	var data = {session : req.session};
-	console.log(data);
+	data.title = 'Forsíða';
     res.render('index', data);
 });
 

@@ -7,20 +7,13 @@ var passwordHash = require('password-hash');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-
-  res.render('login', {session : req.session});
+  var data = { session : req.session };
+  data.title = 'Innskrá';
+  res.render('login', data);
 });
 
 /* GET home page. */
 router.post('/', function(req, res) {
-  //ÞETTA VELDUR SQL INJECTION!!! t.d ' OR '1' = '1
-  // var queryStr = "SELECT * from users WHERE username = '"+req.body.username+
-  //                "' AND password = '"+ req.body.password+"'";
-  // var parameters = null;
-  /*var hashedPassword = passwordHash.generate(req.body.password);
-  console.log('used pass: ');
-  console.log(hashedPassword);
-*/
   var correctPassword = false;
   var password;
   var queryStrPW = 'SELECT password FROM users WHERE username = $1';
@@ -69,10 +62,6 @@ router.post('/', function(req, res) {
     });
 
   });
-
-  
-
-
 
 });
 

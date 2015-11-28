@@ -1,7 +1,6 @@
 extends layout
 
 block content
-  p Skráðu þig inn í frábæra fjélagið.
   if msg
     p= msg
   
@@ -12,4 +11,4 @@ block content
     fieldset.form-group
       label(for="password") Lykilorð
       input(id="password" type="password" name="password" placeholder="Lykilorð").form-control
-    input(type="submit").form-control
+    input(type="submit" value="Skrá mig").form-control

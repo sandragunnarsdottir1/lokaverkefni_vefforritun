@@ -1,19 +1,34 @@
 extends layout
 
 block content
-  p Skoðaðu dagskrána!
   
   if msg
     p= msg
   else
-    form(method="post")
-      fieldset.form-group
-        label(for="username") Nafn
-        input(id="username" type="text" placeholder="Nafn" name="name").form-control
-      fieldset.form-group  
-        label(for="username") Notendanafn
-        input(id="username" type="text" placeholder="Notendanafn" name="username").form-control
-      fieldset.form-group
-        label(for="password") Lykilorð
-        input(id="password" type="password" name="password" placeholder="Lykilorð").form-control
-      input(type="submit" value="Skrá mig í félagið").form-control
+    .skraning
+      if valid== false
+        #errors
+        
+          if valid== false
+            p Villur í skráning
+            each result in results
+              if result.result == false
+                ul
+                  li.villu= result.name
+      form(method="post")
+        fieldset.form-group
+          label(for="name") Nafn
+          input(id="name" type="text" placeholder="Nafn" name="name" value=name).form-control
+        fieldset.form-group
+          label(for="email") Netfang
+          input(id="email" type="email" placeholder="Netfang" name="email" value=email).form-control
+        fieldset.form-group  
+          label(for="username") Notendanafn
+          input(id="username" type="text" placeholder="Notendanafn" name="username" value=username).form-control
+        fieldset.form-group
+          label(for="password") Lykilorð
+          input(id="password" type="password" name="password" placeholder="Lykilorð" value=password).form-control
+        fieldset.form-group
+          label(for="password") Staðfesta lykilorð
+          input(id="password2" type="password" name="password2" placeholder="Lykilorð" value=password2).form-control
+        input(type="submit" value="Skrá mig").form-control

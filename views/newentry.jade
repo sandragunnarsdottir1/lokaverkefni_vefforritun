@@ -3,12 +3,22 @@ extends layout
 block content
 
 	if session && session.user
+		.skraning
+			if valid== false
+				#errors
 
-		form(method='post')
-			input(type='text', name='title' placeholder='Titill Færslu').form-control
-			label(for="entry")
-			p
-			textarea(id="entry" name="entry", placeholder='Skrifaðu færsluna þína hér').form-control
-			input(type="submit" value="Vista").form-control
+					if valid== false
+						p Villur í skráningu! 
+						each result in results
+							if result.result == false
+								ul
+									li.villa= result.name
+			form(method='post')
+				fieldset.form-group
+					input(id="title" type='text', name='title' placeholder='Titill Færslu').form-control
+				fieldset.form-group
+					textarea(id="entry" name="entry", placeholder='Skrifaðu færsluna þína hér').form-control
+				fieldset.form-group
+					input(type="submit" value="Vista").form-control
 
 .xss-holder

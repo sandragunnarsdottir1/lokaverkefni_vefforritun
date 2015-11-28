@@ -5,22 +5,21 @@ block content
 
 	if session && session.user
 		if results
-			a(href='/wall') Til baka
+
+			a(href='/wall').bold Til baka í umræðu
 			p
 			each result in results
-				.entry
-					.left
-						.bold
-							p= 'Dags: ' + result.create_date
-							p= 'Notandi: ' + result.username
-					.right
-						.bold
-							p= 'Færsla: '
+				.panel.panel-info
+					.panel-heading
+						p.panel-title= 'Notandi: ' + result.username 
+						p.panel-title= 'Dags: ' + result.create_date 
+					.panel-body 
 						p= result.entry_text
 
+
 		form(method='post' action= 'forum/blog')
-			label(for="entry")
-			p
-			textarea(id="entry" name="entry", placeholder='Skrifaðu innlegg við þessa færslu').form-control
-			input(type="submit" value="Vista").form-control
+			fieldset.form-group
+				textarea(id="entry" name="entry", placeholder='Skrifaðu innlegg við þessa færslu').form-control
+			fieldset.form-group
+				input(type="submit" value="Vista").form-control
 

@@ -1,7 +1,4 @@
 'use strict';
-var getTvList = require('./utils/tv-list');
-getTvList.tvLisit();
-
 var express = require('express');
 // the path module makes working with paths more convenient
 var path = require('path');
@@ -27,6 +24,9 @@ var newentry = require('./routes/newentry');
 var vinsaelt = require('./routes/vinsaelt');
 var dagskrain = require('./routes/dagskrain');
 var samband = require('./routes/samband');
+
+var getTvList = require('./utils/tv-list');
+getTvList.tvLisit();
 
 
 // initialize express
